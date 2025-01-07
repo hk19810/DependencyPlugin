@@ -15,6 +15,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+
 public class DependencyExtractor {
     public static void main(String[] args) {
         if (args.length < 1) {
@@ -90,7 +91,7 @@ public class DependencyExtractor {
 
             int responseCode = connection.getResponseCode();
             if (responseCode == 200) { // Success
-                Scanner scanner = new Scanner(connection.getInputStream(), StandardCharsets.UTF_8);
+                Scanner scanner = new Scanner(url.openStream(), StandardCharsets.UTF_8);
                 StringBuilder response = new StringBuilder();
                 while (scanner.hasNext()) {
                     response.append(scanner.nextLine());
